@@ -6640,3 +6640,94 @@ body,
   --text-brand: hsl(220,85%,75%);
   --text-link: hsl(220,85%,75%);
 }
+
+
+/*
+ *
+ *  VENCORD PLUGIN - MessageLogger (Deleted Messages)
+ *
+ */
+
+/* Base deleted message style - red gradient overlay */
+.messageLogger-deleted .wrapper_c19a55,
+.vc-ml-deleted .wrapper_c19a55,
+[class*="messageLogger"][class*="deleted"] .wrapper_c19a55,
+.message-logger-deleted .wrapper_c19a55 {
+  background: linear-gradient(
+    135deg,
+    hsla(355, 80%, 40%, 0.35) 0%,
+    hsla(320, 70%, 35%, 0.25) 50%,
+    hsla(280, 65%, 35%, 0.15) 100%
+  ) !important;
+  border: 1px solid hsla(355, 80%, 55%, 0.25) !important;
+  border-radius: var(--message-radius) !important;
+  transition: background 300ms ease !important;
+}
+
+/* Hover state */
+.messageLogger-deleted .wrapper_c19a55:hover,
+.vc-ml-deleted .wrapper_c19a55:hover,
+[class*="messageLogger"][class*="deleted"] .wrapper_c19a55:hover,
+.message-logger-deleted .wrapper_c19a55:hover {
+  background: linear-gradient(
+    135deg,
+    hsla(355, 80%, 40%, 0.45) 0%,
+    hsla(320, 70%, 35%, 0.35) 50%,
+    hsla(280, 65%, 35%, 0.25) 100%
+  ) !important;
+}
+
+/* The deleted text/timestamp color */
+.messageLogger-deleted .wrapper_c19a55 *,
+.vc-ml-deleted .wrapper_c19a55 *,
+[class*="messageLogger"][class*="deleted"] .wrapper_c19a55 * {
+  color: hsla(355, 90%, 80%, 0.85) !important;
+  text-decoration-color: hsla(355, 80%, 60%, 0.5) !important;
+}
+
+/* Deleted indicator badge/text Vencord adds */
+.messageLogger-deleted-timestamp,
+.vc-ml-deleted-timestamp,
+[class*="messageLogger"][class*="timestamp"],
+[class*="deletedMessage"] .timestamp_c19a55 {
+  color: hsla(355, 90%, 70%, 0.7) !important;
+  font-style: italic;
+}
+
+/* Edited messages - subtle purple tint to distinguish from deleted */
+.messageLogger-edited .wrapper_c19a55,
+.vc-ml-edited .wrapper_c19a55,
+[class*="messageLogger"][class*="edited"] .wrapper_c19a55 {
+  background: linear-gradient(
+    135deg,
+    hsla(255, 70%, 45%, 0.2) 0%,
+    hsla(220, 75%, 45%, 0.12) 100%
+  ) !important;
+  border: 1px solid hsla(255, 70%, 60%, 0.2) !important;
+}
+
+/* Vencord MessageLogger - the [deleted] label it injects */
+.messageLogger-deleted-message,
+.vc-ml-deleted-message,
+[class*="deletedMessage"] {
+  color: hsl(355, 90%, 75%) !important;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* Left border accent on deleted messages */
+.messageLogger-deleted,
+.vc-ml-deleted,
+[class*="messageLogger"][class*="deleted"] {
+  border-left: 3px solid hsla(355, 80%, 55%, 0.6) !important;
+  border-radius: 0 var(--message-radius) var(--message-radius) 0 !important;
+  padding-left: 4px;
+}
+
+/* Deleted message image/attachment dimming */
+.messageLogger-deleted img,
+.vc-ml-deleted img,
+[class*="messageLogger"][class*="deleted"] img {
+  opacity: 0.5;
+  filter: grayscale(30%) brightness(0.7);
+}
